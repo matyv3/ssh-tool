@@ -1,0 +1,19 @@
+{
+	"name": "ssh-tool",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"bin": "./bin/sshtool.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"chalk": "^4.1.0",
+		"commander": "^5.1.0",
+		"inquirer": "^7.2.0",
+		"shelljs": "^0.8.4"
+	}
+}
