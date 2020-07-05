@@ -2,7 +2,7 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const path = require('path')
 const chalk = require('chalk')
-const shell = require('shelljs')
+const execSh = require('exec-sh')
 
 const connect = (cmd) => {
   const file = path.join(__dirname, '../connections.json')
@@ -25,11 +25,11 @@ const connect = (cmd) => {
       ])
       .then(answer => {
 	const { conn } = choices[answer.server]
-	const command = `ssh ${conn.user}@${conn.host}`	
-	shell.exec(command)	
+	execSh('ssh ' + conn.user + '@' + conn.host, function(err){
+	  if(err) throw err
+	})
       })
   })
 }
-
 
 module.exports = connect
