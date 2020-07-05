@@ -7,7 +7,10 @@ const execSh = require('exec-sh')
 const connect = (cmd) => {
   const file = path.join(__dirname, '../connections.json')
   fs.readFile(file, 'utf8', function(err, data){
-    if(err) throw new Error(err)
+    if(err){
+      console.log(chalk.cyan('No hay conexiones guardadas, ejecute "ssh-tool add" para agregar conexiones'))
+      process.exit(1)
+    } 
     data = JSON.parse(data)
     const cons = data.connections
     const choices = []
